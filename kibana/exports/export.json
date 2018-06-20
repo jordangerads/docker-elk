@@ -1,16 +1,21 @@
 [
   {
-    "_id": "a1e6c090-7337-11e8-b800-5fa83a2b3df3",
-    "_type": "visualization",
+    "_id": "2981f2d0-7320-11e8-a706-19ab126d297c",
+    "_type": "dashboard",
     "_source": {
-      "title": "Weekly Log Levels",
-      "visState": "{\"title\":\"Weekly Log Levels\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":false,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"d\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"level.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
-      "uiStateJSON": "{\"vis\":{\"colors\":{\"INFO\":\"#508642\",\"WARN\":\"#CCA300\",\"2018-06-15\":\"#64B0C8\",\"2018-06-18\":\"#6D1F62\"}}}",
+      "title": "Demo Dashboard",
+      "hits": 0,
       "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":13,\"h\":15,\"i\":\"1\"},\"embeddableConfig\":{},\"id\":\"a1e6c090-7337-11e8-b800-5fa83a2b3df3\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":24,\"y\":15,\"w\":24,\"h\":15,\"i\":\"2\"},\"embeddableConfig\":{\"mapCenter\":[14.604847155053898,-9.843750000000002],\"mapZoom\":2},\"id\":\"d8f43a40-7337-11e8-b800-5fa83a2b3df3\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"3\"},\"embeddableConfig\":{},\"id\":\"0d5558a0-7338-11e8-b800-5fa83a2b3df3\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":0,\"y\":15,\"w\":24,\"h\":15,\"i\":\"4\"},\"embeddableConfig\":{\"vis\":{\"colors\":{\"ERROR\":\"#BF1B00\",\"INFO\":\"#3F6833\",\"WARN\":\"#F4D598\"}},\"spy\":null},\"id\":\"a3b73b80-748f-11e8-b800-5fa83a2b3df3\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":13,\"y\":0,\"w\":11,\"h\":15,\"i\":\"5\"},\"version\":\"6.3.0\",\"type\":\"visualization\",\"id\":\"bdeb10f0-748d-11e8-b800-5fa83a2b3df3\",\"embeddableConfig\":{}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
       "version": 1,
+      "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"filter\":[{\"meta\":{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"range\",\"key\":\"@timestamp\",\"value\":\"now-7d to now\",\"params\":{\"gte\":\"now-7d\",\"lt\":\"now\"}},\"range\":{\"@timestamp\":{\"gte\":\"now-7d\",\"lt\":\"now\"}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
       }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
     }
   },
   {
@@ -25,6 +30,60 @@
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"key\":\"@timestamp\",\"negate\":false,\"params\":{\"gte\":\"now-7d\",\"lt\":\"now\"},\"type\":\"range\",\"value\":\"now-7d to now\"},\"range\":{\"@timestamp\":{\"gte\":\"now-7d\",\"lt\":\"now\"}}}],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
       }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "bdeb10f0-748d-11e8-b800-5fa83a2b3df3",
+    "_type": "visualization",
+    "_source": {
+      "title": "Access Elapsed Time",
+      "visState": "{\"title\":\"Access Elapsed Time\",\"type\":\"metric\",\"params\":{\"addTooltip\":true,\"addLegend\":false,\"type\":\"metric\",\"metric\":{\"percentageMode\":false,\"useRanges\":false,\"colorSchema\":\"Green to Red\",\"metricColorMode\":\"None\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"labels\":{\"show\":true},\"invertColors\":false,\"style\":{\"bgFill\":\"#000\",\"bgColor\":false,\"labelColor\":false,\"subText\":\"\",\"fontSize\":60}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"customLabel\":\"Average millisecond request time\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"group\",\"params\":{\"field\":\"elapsed_time\",\"ranges\":[{\"from\":0,\"to\":1000},{\"from\":1000,\"to\":null}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2ef4dda0-731f-11e8-a706-19ab126d297c\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "a3b73b80-748f-11e8-b800-5fa83a2b3df3",
+    "_type": "visualization",
+    "_source": {
+      "title": "Recent Log Levels",
+      "visState": "{\"title\":\"Recent Log Levels\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"category\"}],\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"legendPosition\":\"right\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Log Entries\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"times\":[],\"type\":\"histogram\",\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Log Entries\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Log Entries\"}},{\"id\":\"7\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"split\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"h\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Event Time\",\"row\":false}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"level.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Log Level\"}},{\"id\":\"9\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"level.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Log Levels\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"ERROR\":\"#BF1B00\",\"INFO\":\"#3F6833\",\"WARN\":\"#F4D598\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"key\":\"@timestamp\",\"negate\":false,\"params\":{\"gte\":\"now-7d\",\"lt\":\"now\"},\"type\":\"range\",\"value\":\"now-7d to now\"},\"range\":{\"@timestamp\":{\"gte\":\"now-7d\",\"lt\":\"now\"}}}],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "a1e6c090-7337-11e8-b800-5fa83a2b3df3",
+    "_type": "visualization",
+    "_source": {
+      "title": "Weekly Log Levels",
+      "visState": "{\"title\":\"Weekly Log Levels\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":false,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"d\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Date\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"level.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Log Level\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"INFO\":\"#508642\",\"WARN\":\"#CCA300\",\"2018-06-15\":\"#64B0C8\",\"2018-06-18\":\"#6D1F62\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"filter\":[{\"meta\":{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"range\",\"key\":\"@timestamp\",\"value\":\"now-7d to now\",\"params\":{\"gte\":\"now-7d\",\"lt\":\"now\"}},\"range\":{\"@timestamp\":{\"gte\":\"now-7d\",\"lt\":\"now\"}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
     }
   },
   {
@@ -32,13 +91,16 @@
     "_type": "visualization",
     "_source": {
       "title": "Top Concerning Classes",
-      "visState": "{\"title\":\"Top Concerning Classes\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"d\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"logger_name.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "visState": "{\"title\":\"Top Concerning Classes\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"d\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Date\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"logger_name.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Logging Class\"}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"filter\":[{\"meta\":{\"index\":\"47f7d560-7337-11e8-b800-5fa83a2b3df3\",\"type\":\"phrases\",\"key\":\"level.keyword\",\"value\":\"WARN, ERROR\",\"params\":[\"WARN\",\"ERROR\"],\"negate\":false,\"disabled\":false,\"alias\":null},\"query\":{\"bool\":{\"should\":[{\"match_phrase\":{\"level.keyword\":\"WARN\"}},{\"match_phrase\":{\"level.keyword\":\"ERROR\"}}],\"minimum_should_match\":1}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
       }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
     }
   }
 ]
